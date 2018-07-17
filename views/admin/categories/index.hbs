@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <p class="pull-right"><a href="/admin/categories/create">Create New Category</a></p>
+        <h4 class="title">Categories</h4>
+        <p class="category">List Of All Categories</p>
+    </div>
+    <div class="card-content table-responsive">
+        <table class="table">
+            <thead class="text-primary">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+                {{#each categories}}
+                <tr>
+                    <td>{{ this._id }}</td>
+                    <td>{{ this.name }}</td>
+                    <td><a href="/admin/categories/edit/{{ this._id }}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td>
+                        <form action="/admin/categories/delete/{{ this._id }}?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

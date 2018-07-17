@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <p class="pull-right"><a href="/admin/users/create">Create New User</a></p>
+        <h4 class="title">Users</h4>
+        <p class="category">List Of All Users</p>
+    </div>
+    <div class="card-content table-responsive">
+        <table class="table">
+            <thead class="text-primary">
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <td> <img src="/uploads/avatars/{{ this.avatar }}" style="width:80px;"> </td>
+                    <td>{{ this.first_name }}</td>
+                    <td>{{ this.email }}</td>
+                    <td>{{ this.is_active }}</td>
+                    <td>{{getUserObjectById this._id}}</td>
+                    <td><a href="/admin/users/edit/{{this._id}}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td>
+                        <form action="/admin/users/delete/{{this._id}}?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

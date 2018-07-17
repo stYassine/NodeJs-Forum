@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <p class="pull-right"><a href="/admin/posts/create">Create New Post</a></p>
+        <h4 class="title">Posts</h4>
+        <p class="category">List Of All Posts</p>
+    </div>
+    <div class="card-content table-responsive">
+        <table class="table">
+            <thead class="text-primary">
+                <th>Thumbnail</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+                {{#each posts}}
+                <tr>
+                    <td><img src="/uploads/thumbnails/{{ this.thumbnail }}" style="width:80px;"></td>
+                    <td>{{ this.title }}</td>
+                    <td>{{ this.is_active }}</td>
+                    <td><a href="/admin/posts/edit/{{ this._id }}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td>
+                        <form action="/admin/posts/delete/{{ this._id }}?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

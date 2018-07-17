@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <h4 class="title">Edit Users</h4>
+        <p class="category">Edit User Data</p>
+    </div>
+    <div class="card-content table-responsive">
+        <form action="/admin/users/edit/{{user._id}}?_method=PUT" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="">Role</label>
+                <select name="role" class="form-control" required>
+                    {{#each roles}}
+                        <option value="{{ this._id }}">{{ this.name }}</option>
+                    {{/each}}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="">Is Active </label>
+                <select name="is_active" class="form-control" required>
+                    <option value="1" {{#if user.is_active }}selected{{/if}} >Active</option>
+                    <option value="0">DisActive</option>
+                </select>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="">First Name</label>
+                <input type="text" name="first_name" value="{{ user.first_name }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" name="last_name" value="{{ user.last_name }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" name="email"value="{{ user.email }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Update</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

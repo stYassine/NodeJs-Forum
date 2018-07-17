@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <p class="pull-right"><a href="/admin/roles/create">Create New Role</a></p>
+        <h4 class="title">Roles</h4>
+        <p class="category">List Of All Roles</p>
+    </div>
+    <div class="card-content table-responsive">
+        <table class="table">
+            <thead class="text-primary">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+                {{#each roles}}
+                <tr>
+                    <td>{{ this._id }}</td>
+                    <td>{{ this.name }}</td>
+                    <td><a href="/admin/roles/edit/{{ this._id }}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td>
+                        <form action="/admin/roles/delete/{{ this._id }}?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

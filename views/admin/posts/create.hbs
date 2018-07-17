@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <h4 class="title">Create Posts</h4>
+        <p class="category">Create New Post</p>
+    </div>
+    <div class="card-content table-responsive">
+        <form action="/admin/posts/create" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="">Category</label>
+                <select name="category" class="form-control" required>
+                    <option value="">Choose</option>
+                    {{#each categories}}
+                        <option value="{{ this._id }}">{{ this.name }}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">User</label>
+                <select name="user" class="form-control" required>
+                    <option value="">Choose</option>
+                    {{#each users}}
+                        <option value="{{ this._id }}">{{ this.email }}</option>
+                    {{/each}}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="">Is Active</label>
+                <select name="is_active" class="form-control" required>
+                    <option value="">Choose</option>
+                    <option value="1">Active</option>
+                    <option value="0">DisActive</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" name="title" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Thumbnail</label>
+                <input type="file" name="thumbnail" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Text</label>
+                <textarea name="text" rows="7" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

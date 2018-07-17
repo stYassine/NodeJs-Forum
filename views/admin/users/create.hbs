@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <h4 class="title">Create Users</h4>
+        <p class="category">Create New User</p>
+    </div>
+    <div class="card-content table-responsive">
+        <form action="/admin/users/create" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="">Role</label>
+                <select name="role" class="form-control" required>
+                    <option value="">Choose</option>
+                    {{#each roles}}
+                        <option value="{{ this._id }}">{{ this.name }}</option>
+                    {{/each}}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="">Is Active</label>
+                <select name="is_active" class="form-control" required>
+                    <option value="">Choose</option>
+                    <option value="1">Active</option>
+                    <option value="0">DisActive</option>
+                </select>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="">First Name</label>
+                <input type="text" name="first_name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" name="last_name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Avatar</label>
+                <input type="file" name="avatar" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

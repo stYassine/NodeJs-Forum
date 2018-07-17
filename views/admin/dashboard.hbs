@@ -1,0 +1,157 @@
+<div class="row">
+
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header" data-background-color="orange">
+                <i class="material-icons">content_copy</i>
+            </div>
+            <div class="card-content">
+                <p class="category">Users</p>
+                <h3 class="title">{{ users.length }}
+                    <small>GB</small>
+                </h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="#pablo">Get More Space...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header" data-background-color="green">
+                <i class="material-icons">store</i>
+            </div>
+            <div class="card-content">
+                <p class="category">Posts</p>
+                <h3 class="title">{{ posts.length }}</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">date_range</i> Last 24 Hours
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header" data-background-color="red">
+                <i class="material-icons">Comments</i>
+            </div>
+            <div class="card-content">
+                <p class="category">Fixed Issues</p>
+                <h3 class="title">{{ comments.length }}</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">local_offer</i> Tracked from Github
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    </div>
+
+    <div class="row">
+    
+        <!-- Latest Users -->
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="orange">
+                    <h4 class="title">Latest Users</h4>
+                    <p class="category">New Users</p>
+                </div>
+                <div class="card-content table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Country</th>
+                        </thead>
+                        <tbody>
+                            {{#each users}}
+                            <tr>
+                                <td>1</td>
+                                <td>{{ this.first_name }}</td>
+                                <td> <a href="/profile/{{ this._id }}">View</a> </td>
+                                <td>Niger</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Latest Users -->
+
+        <!-- Latest Posts -->
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="green">
+                    <h4 class="title">Latest Posts</h4>
+                    <p class="category">New Posts</p>
+                </div>
+                <div class="card-content table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Country</th>
+                        </thead>
+                        <tbody>
+                            {{#each posts}}
+                            <tr>
+                                <td>1</td>
+                                <td>{{ this.title }}</td>
+                                <td><a href="/single/{{ this._id }}">View</a></td>
+                                <td>Niger</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END Latest Posts -->
+
+
+        <!-- Latest Comments -->
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Latest Comments</h4>
+                    <p class="category">New Comments</p>
+                </div>
+                <div class="card-content table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Country</th>
+                        </thead>
+                        <tbody>
+                            {{#each comments}}
+                            <tr>
+                                <td>1</td>
+                                <td>Dakota Rice</td>
+                                <td> <a href="/single/{{ this.post }}">View Post</a> </td>
+                                <td>Niger</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END Latest Comments -->
+
+
+    </div>

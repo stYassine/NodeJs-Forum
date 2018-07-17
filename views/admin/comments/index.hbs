@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <p class="pull-right"><a href="/admin/comments/create">Create New Comment</a></p>
+        <h4 class="title">Comments</h4>
+        <p class="category">List Of All Comments</p>
+    </div>
+    <div class="card-content table-responsive">
+        <table class="table">
+            <thead class="text-primary">
+                <th>User</th>
+                <th>Post</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+                {{#each comments}}
+                <tr>
+                    <td>{{ this.user }}</td>
+                    <td>{{ this.post }}</td>
+                    <td>{{ this.is_active }}</td>
+                    <td><a href="/admin/comments/edit/{{ this._id }}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td>
+                        <form action="/admin/comments/edit/{{ this._id }}?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
